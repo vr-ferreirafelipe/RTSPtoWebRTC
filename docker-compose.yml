@@ -1,0 +1,12 @@
+version: "3.8" # Specify the Docker Compose version
+
+services:
+  rtsptowebrtc-go: # Replace with your desired service name
+    build: . # Build the image from the current directory (containing Dockerfile)
+    ports:
+      - "8083:8083" # Map container port 8083 to host port 8083
+    environment:
+      GO111MODULE: on # Enable Go modules
+      GIN_MODE: release # Set Gin framework mode to release
+    volumes:
+      - .:/go/src/app:rw # Mount the current directory as a volume for code changes
